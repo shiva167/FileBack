@@ -21,8 +21,8 @@
 
 import express from 'express';
 import cors from 'cors';
-import router from './routes/routes.js';
-import DBConnection from './database/db.js';
+// import router from './routes/routes.js';
+// import DBConnection from './database/db.js';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -38,12 +38,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(join(__dirname, "client/build")));
 
-app.use('/', router);
+// app.use('/', router);
 
 const port = process.env.PORT || 8000;
-DBConnection();
-console.log("default directory name:")
-console.log(join(__dirname, "client/build"));
+// DBConnection();
+// console.log("default directory name:")
+// console.log(join(__dirname, "client/build"));
 
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'client/build', 'index.html'));
