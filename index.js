@@ -36,15 +36,17 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(join(__dirname, "client/build")));
+
 app.use('/', router);
 
 const port = process.env.PORT || 8000;
 DBConnection();
+console.log("default directory name:")
+console.log(join(__dirname, "client/build"));
 
 app.get('/', (req, res) => {
-  console.log(__dirname);
-  app.use(express.static(join(__dirname, 'client', 'build')));
-  res.sendFile(join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(join(__dirname, 'client/build', 'index.html'));
 });
 
 app.listen(port, () => console.log(`Server is running on Port ${port}`));
