@@ -46,7 +46,7 @@ const port = process.env.PORT || 8000;
 console.log(join(__dirname, "var/task/client/build"));
 
 app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, 'client/build', 'index.html'));
+  res.sendFile(join(__dirname, 'var/task/client/build', 'index.html'));
 // res.status(200).json({
 //     "message": " app is running"
 // })
