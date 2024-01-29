@@ -36,7 +36,7 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(join(__dirname, "client/build")));
+// app.use(express.static(join(__dirname, "client/build")));
 
 // app.use('/', router);
 
@@ -46,7 +46,10 @@ const port = process.env.PORT || 8000;
 // console.log(join(__dirname, "client/build"));
 
 app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, 'client/build', 'index.html'));
+//   res.sendFile(join(__dirname, 'client/build', 'index.html'));
+res.status(200).json({
+    "message": " app is running"
+})
 });
 
 app.listen(port, () => console.log(`Server is running on Port ${port}`));
